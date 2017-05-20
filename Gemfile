@@ -53,7 +53,7 @@ group :development do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'firstdraft_generators'
+  gem 'firstdraft_generators', github: "firstdraft/firstdraft_generators", branch: "disambiguating"
   gem 'letter_opener'
   gem 'meta_request'
   gem 'wdm', platforms: [:mingw, :mswin, :x64_mingw]

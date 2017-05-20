@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if photo_to_prefill.errors.any? %>
+  <% photo_to_prefill.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit photo #<%= photo_to_prefill.id %>
+</h1>
+
+<hr>
+
+<form action="/update_photo/<%= photo_to_prefill.id %>" method="post">
+  <!-- Label and input for source -->
+  <div class="form-group">
+    <label for="source" class="control-label">
+      Source
+    </label>
+
+    <input type="text" id="source" name="form_source" class="form-control" value="<%= photo_to_prefill.source %>">
+  </div>
+
+  <!-- Label and input for caption -->
+  <div class="form-group">
+    <label for="caption" class="control-label">
+      Caption
+    </label>
+
+    <textarea id="caption" name="form_caption" class="form-control" rows="3"><%= photo_to_prefill.caption %></textarea>
+  </div>
+
+  <button class="btn btn-default">
+    Update photo
+  </button>
+</form>
+
+<hr>
+
+<a href="/photos">
+  Go back
+</a>

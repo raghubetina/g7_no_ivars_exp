@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if photo_with_errors.errors.any? %>
+  <% photo_with_errors.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new photo
+</h1>
+
+<hr>
+
+<form action="/create_photo" method="post">
+  <!-- Label and input for source -->
+  <div class="form-group">
+    <label for="source" class="control-label">
+      Source
+    </label>
+
+    <input type="text" id="source" name="form_source" class="form-control" value="<%= photo_with_errors.source %>">
+  </div>
+
+  <!-- Label and input for caption -->
+  <div class="form-group">
+    <label for="caption" class="control-label">
+      Caption
+    </label>
+
+    <textarea id="caption" name="form_caption" class="form-control" rows="3"><%= photo_with_errors.caption %></textarea>
+  </div>
+
+  <button class="btn btn-default">
+    Create photo
+  </button>
+</form>
+
+<hr>
+
+<a href="/photos">
+  Go back
+</a>
